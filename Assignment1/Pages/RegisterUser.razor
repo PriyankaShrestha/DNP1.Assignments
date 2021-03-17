@@ -1,0 +1,42 @@
+﻿@page "/RegisterUser"
+@using FileData
+@using Assignment1.Data
+
+@inject IUserService file
+@inject NavigationManager NavMgr
+
+<h3>Register</h3>
+
+<EditForm Model="@newUser" OnValidSubmit="@AddNewUser">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label">Username:</label>
+        <InputText class="col-sm-4 form-control" @bind-Value="@newUser.Username"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label">Password:</label>
+        <InputText class="col-sm-4 form-control" @bind-Value="@newUser.Password"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label">Role:</label>
+        <InputText class="col-sm-4 form-control" @bind-Value="@newUser.Role"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label">Age:</label>
+        <InputNumber class="col-sm-4 form-control" @bind-Value="@newUser.Age"/>
+    </div>
+    <p class="actions">
+        <button class="btn btn-outline-dark" type="submit">Create</button>
+    </p>
+</EditForm>
+
+@code {
+    private User newUser = new();
+
+    private void AddNewUser()
+    {
+        file.AddUser(newUser);
+        NavMgr.NavigateTo("/Login");
+    }
+}

@@ -1,0 +1,131 @@
+﻿@page "/ViewFamily"
+@using FileData
+@using Models
+@inject IPersonTarget file
+@inject NavigationManager NavMgr
+
+<h3>Family Register</h3>
+
+<p>
+    Filter by City: <input type="text" @oninput="@((arg) => FilterByCity(arg))"
+                           style="width:100px"/>
+</p>
+
+@if (filter == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (!filter.Any())
+{
+    <p>
+        <em>No Family registered. Please register first.</em>
+    </p>
+}
+else
+{
+    <TableTemplate Items="filter">
+        <TableHeader>
+            <th>Id</th>
+            <th>City</th>
+            <th>Street Name</th>
+            <th>House Number</th>
+            <th>Floor</th>
+            <th>Number of Adults</th>
+            <th>Number of Children</th>
+            <AuthorizeView Policy="EditorRole">
+                <th>Action</th>
+            </AuthorizeView>
+            <th>Add Member</th>
+        </TableHeader>
+        
+        <RowTemplate Context="item">
+            <td>@item.Id</td>
+            <td>@item.City</td>
+            <td>@item.StreetName</td>
+            <td>@item.HouseNumber</td>
+            <td>@item.Floor</td>
+            <td>@item.Adults.Count <button @onclick="@(() => ShowAdults(item.Id))">
+                <i class="oi oi-eye" style="color: #1b6ec2"/>
+            </button></td>
+            <td>@item.Children.Count<button @onclick="@(() => ShowChildren(item.Id))">
+                <i class="oi oi-eye" style="color: #1b6ec2"/>
+            </button></td>
+            <AuthorizeView Policy="EditorRole">
+                <Authorized>
+                <td>
+                    <button @onclick="@(() => RemoveFamily(item.Id))">
+                        <i class="oi oi-trash" style="color: red"/>
+                    </button> | <button @onclick="@(() => EditFamily(item.Id))">
+                        <i class="oi oi-pencil" style="color: red"/>
+                    </button>
+                </td>
+                </Authorized>
+            </AuthorizeView>
+            <td>
+                <button @onclick="@(() => AddMember(item.Id))">
+                    <i class="oi oi-person" style="color: #1b6ec2"/>
+                </button>
+            </td>
+        </RowTemplate>
+    </TableTemplate>
+}
+
+@code {
+    private IList<Family> toShow;
+    private IList<Family> filter;
+    
+   private string? filterbyCity;
+
+    protected override async Task OnInitializedAsync()
+    {
+        toShow = file.Get();
+        filter = toShow;
+    }
+
+    private void AddMember(int id)
+    {
+        NavMgr.NavigateTo($"/AddMember/{id}");
+    }
+
+    private void FilterByCity(ChangeEventArgs evt)
+    {
+        string? filterByCity = null;
+        try
+        {
+            filterByCity = evt.Value.ToString();
+        }
+        catch (Exception e)
+        {}
+        if (filterByCity != null)
+        {
+            filter = toShow.Where(t => t.City == filterByCity).ToList();
+        }
+        else
+        {
+            filter = toShow;
+        }
+    }
+
+    private void ShowAdults(int id)
+    {
+       NavMgr.NavigateTo($"/ViewAdults/{id}");
+    }
+
+    private void ShowChildren(int id)
+    {
+        NavMgr.NavigateTo($"/ViewChildren/{id}");
+    }
+
+    private void RemoveFamily(int itemId)
+    {
+        file.RemoveFamily(itemId);
+    }
+
+    private void EditFamily(int id)
+    {
+        NavMgr.NavigateTo($"/EditFamily/{id}");
+    }
+
+}

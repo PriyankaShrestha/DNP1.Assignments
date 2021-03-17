@@ -1,0 +1,51 @@
+[
+  {
+    "City": "Horsens",
+    "Floor": "1tv",
+    "StreetName": "Gormsgade",
+    "HouseNumber": 17,
+    "Id": 1,
+    "Adults": [
+      {
+        "JobTitle": null,
+        "CPRNumber": 230696270,
+        "FirstName": "Priyanka",
+        "LastName": "Shrestha",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 25,
+        "Weight": 53,
+        "Height": 163,
+        "Sex": "Female",
+        "Username": null,
+        "Password": null
+      }
+    ],
+    "Children": [
+      {
+        "Interests": null,
+        "Pets": null,
+        "CPRNumber": 230694704,
+        "FirstName": "Parisha",
+        "LastName": "Shakya",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 5,
+        "Weight": 25,
+        "Height": 120,
+        "Sex": "Female",
+        "Username": null,
+        "Password": null
+      }
+    ]
+  },
+  {
+    "City": "Copenhagen",
+    "Floor": "1th",
+    "StreetName": "Alberstlund",
+    "HouseNumber": 12,
+    "Id": 2,
+    "Adults": [],
+    "Children": []
+  }
+]
