@@ -27,7 +27,6 @@ else
 {
     <TableTemplate Items="filter">
         <TableHeader>
-            <th>Id</th>
             <th>City</th>
             <th>Street Name</th>
             <th>House Number</th>
@@ -41,30 +40,29 @@ else
         </TableHeader>
         
         <RowTemplate Context="item">
-            <td>@item.Id</td>
             <td>@item.City</td>
             <td>@item.StreetName</td>
             <td>@item.HouseNumber</td>
             <td>@item.Floor</td>
-            <td>@item.Adults.Count <button @onclick="@(() => ShowAdults(item.Id))">
+            <td>@item.Adults.Count <button @onclick="@(() => ShowAdults(item.Address()))">
                 <i class="oi oi-eye" style="color: #1b6ec2"/>
             </button></td>
-            <td>@item.Children.Count<button @onclick="@(() => ShowChildren(item.Id))">
+            <td>@item.Children.Count<button @onclick="@(() => ShowChildren(item.Address()))">
                 <i class="oi oi-eye" style="color: #1b6ec2"/>
             </button></td>
             <AuthorizeView Policy="EditorRole">
                 <Authorized>
                 <td>
-                    <button @onclick="@(() => RemoveFamily(item.Id))">
+                    <button @onclick="@(() => RemoveFamily(item.Address()))">
                         <i class="oi oi-trash" style="color: red"/>
-                    </button> | <button @onclick="@(() => EditFamily(item.Id))">
+                    </button> | <button @onclick="@(() => EditFamily(item.Address()))">
                         <i class="oi oi-pencil" style="color: red"/>
                     </button>
                 </td>
                 </Authorized>
             </AuthorizeView>
             <td>
-                <button @onclick="@(() => AddMember(item.Id))">
+                <button @onclick="@(() => AddMember(item.Address()))">
                     <i class="oi oi-person" style="color: #1b6ec2"/>
                 </button>
             </td>
@@ -84,9 +82,9 @@ else
         filter = toShow;
     }
 
-    private void AddMember(int id)
+    private void AddMember(string address)
     {
-        NavMgr.NavigateTo($"/AddMember/{id}");
+        NavMgr.NavigateTo($"/AddMember/{address}");
     }
 
     private void FilterByCity(ChangeEventArgs evt)
@@ -108,24 +106,24 @@ else
         }
     }
 
-    private void ShowAdults(int id)
+    private void ShowAdults(string address)
     {
-       NavMgr.NavigateTo($"/ViewAdults/{id}");
+       NavMgr.NavigateTo($"/ViewAdults/{address}");
     }
 
-    private void ShowChildren(int id)
+    private void ShowChildren(string address)
     {
-        NavMgr.NavigateTo($"/ViewChildren/{id}");
+        NavMgr.NavigateTo($"/ViewChildren/{address}");
     }
 
-    private void RemoveFamily(int itemId)
+    private void RemoveFamily(string address)
     {
-        file.RemoveFamily(itemId);
+        file.RemoveFamily(address);
     }
 
-    private void EditFamily(int id)
+    private void EditFamily(string address)
     {
-        NavMgr.NavigateTo($"/EditFamily/{id}");
+        NavMgr.NavigateTo($"/EditFamily/{address}");
     }
 
 }

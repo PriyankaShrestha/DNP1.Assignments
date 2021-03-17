@@ -6,17 +6,19 @@ namespace FileData
     public interface IPersonTarget
     {
         void AddFamily(Family family);
-        void RemoveFamily(int id);
+        void RemoveFamily(string address);
         void Update(Family family);
-        Family Get(int id);
+        Family Get(string address);
         IList<Family> Get();
         
-        void AddNewAdult(Adult adult, int id);
-        void RemoveAdult(Adult adult, int id);
-        Adult GetAdult(int adultId, int familyId);
-        void UpdateAdult(Adult adult, int familyId);
         
-        void AddNewChild(Child child, int id);
-        void RemoveChild(Child child, int id);
+        void AddNewAdult(Adult adult, string address);
+        void RemoveAdult(Adult adult, string address);
+        Adult GetAdult(int adultId, string address);
+        void UpdateAdult(Adult adult, string address);
+        
+        
+        void AddNewChild(Child child, string address);
+        void RemoveChild(Child child, string address);
     }
 }

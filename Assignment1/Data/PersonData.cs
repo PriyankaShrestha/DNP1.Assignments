@@ -7,7 +7,7 @@ namespace Assignment1.Data
 {
     public class PersonData : IPersonTarget
     {
-        private FileContext file;
+       private FileContext file;
 
         public PersonData(FileContext file)
         {
@@ -16,42 +16,31 @@ namespace Assignment1.Data
         
         public void AddFamily(Family family)
         {
-            int max;
-            if (file.Families.Count == 0)
-            {
-                max = 1;
-            }
-            else
-            {
-                max = file.Families.Max(family => family.Id) + 1;
-            }
             file.Families.Add(family);
-            family.Id = max;
             file.SaveChanges();
         }
 
-        public void RemoveFamily(int id)
+        public void RemoveFamily(string address)
         {
-            Family familyToRemove = file.Families.First(t => t.Id == id);
+            Family familyToRemove = file.Families.First(t => t.Address().Equals(address));
             file.Families.Remove(familyToRemove);
             file.SaveChanges();
         }
 
         public void Update(Family family)
         {
-            Family toUpdate = file.Families.First(t => t.Id == family.Id);
+            Family toUpdate = file.Families.First(t => t.Address().Equals(family.Address()));
             toUpdate.City = family.City;
             toUpdate.StreetName = family.StreetName;
             toUpdate.HouseNumber = family.HouseNumber;
             toUpdate.Floor = family.Floor;
             
             file.SaveChanges();
-
         }
 
-        public Family Get(int id)
+        public Family Get(string address)
         {
-            return file.Families.FirstOrDefault(t => t.Id == id);
+            return file.Families.FirstOrDefault(t => t.Address().Equals(address));
         }
 
         public IList<Family> Get()
@@ -59,30 +48,30 @@ namespace Assignment1.Data
             return file.Families;
         }
 
-        public void AddNewAdult(Adult adult, int id)
+        public void AddNewAdult(Adult adult, string address)
         {
-            Family fam = file.Families.FirstOrDefault(t => t.Id == id);
+            Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
             fam.Adults.Add(adult);
             file.SaveChanges();
         }
 
-        public void RemoveAdult(Adult adult, int id)
+        public void RemoveAdult(Adult adult, string address)
         {
-            Family fam = file.Families.FirstOrDefault(t => t.Id == id);
+            Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
             fam.Adults.Remove(adult);
             file.SaveChanges();
         }
 
-        public Adult GetAdult(int adultId, int familyId)
+        public Adult GetAdult(int adultId, string address)
         {
-            Family fam = file.Families.FirstOrDefault(t => t.Id == familyId);
+            Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
             Adult adult = fam.Adults.FirstOrDefault(a => a.CPRNumber == adultId);
             return adult;
         }
 
-        public void UpdateAdult(Adult adult, int familyId)
+        public void UpdateAdult(Adult adult, string address)
         {
-            Adult adu = GetAdult(adult.CPRNumber, familyId);
+            Adult adu = GetAdult(adult.CPRNumber, address);
             adu.Age = adult.Age;
             adu.Weight = adult.Weight;
             adu.Height = adult.Height;
@@ -91,16 +80,16 @@ namespace Assignment1.Data
             file.SaveChanges();
         }
 
-        public void AddNewChild(Child child, int id)
+        public void AddNewChild(Child child, string address)
         {
-            Family fam = file.Families.FirstOrDefault(t => t.Id == id);
+            Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
             fam.Children.Add(child);
             file.SaveChanges();
         }
 
-        public void RemoveChild(Child child, int id)
+        public void RemoveChild(Child child, string address)
         {
-            Family fam = file.Families.FirstOrDefault(t => t.Id == id);
+            Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
             fam.Children.Remove(child);
             file.SaveChanges();
         }

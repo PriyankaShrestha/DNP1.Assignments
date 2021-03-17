@@ -96,7 +96,7 @@ using Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/ViewAdults/{Id:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/ViewAdults/{Address}")]
     public partial class ViewAdults : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -107,14 +107,14 @@ using Models;
 #nullable restore
 #line 72 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\ViewAdults.razor"
        
-    [Parameter] public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
     private IList<Adult> adults;
     private IList<Adult> personToShow;
     private string? filterbyName;
 
     protected override async Task OnInitializedAsync()
     {
-        adults = file.Get(Id).Adults;
+        adults = file.Get(Address).Adults;
         personToShow = adults;
     }
 
@@ -138,15 +138,15 @@ using Models;
         }
     }
 
-    private void Edit(int adultId, int Id)
+    private void Edit(int adultId, string address)
     {
-        NavMgr.NavigateTo($"/EditAdult/{adultId}/{Id}");
+        NavMgr.NavigateTo($"/EditAdult/{adultId}/{address}");
     }
 
     private void RemovePerson(int id)
     {
         Adult adultToRemove = adults.First(t => t.CPRNumber == id);
-        file.RemoveAdult(adultToRemove, Id);
+        file.RemoveAdult(adultToRemove, Address);
         adults.Remove(adultToRemove);
         personToShow.Remove(adultToRemove);
     }

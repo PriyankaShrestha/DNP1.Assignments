@@ -1,4 +1,4 @@
-﻿@page "/ViewChildren/{Id:int}"
+﻿@page "/ViewChildren/{Address}"
 @using FileData
 @using Models
 @inject IPersonTarget file
@@ -69,14 +69,14 @@ else
 }
 
 @code {
-    [Parameter] public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
     private IList<Child> children;
     private IList<Child> personToShow;
     private string? filterbyName;
 
     protected override async Task OnInitializedAsync()
     {
-        children = file.Get(Id).Children;
+        children = file.Get(Address).Children;
         personToShow = children;
     }
 
@@ -108,7 +108,7 @@ else
     private void RemovePerson(int id)
     {
         Child ToRemove = children.First(t => t.CPRNumber == id);
-        file.RemoveChild(ToRemove, Id);
+        file.RemoveChild(ToRemove, Address);
         children.Remove(ToRemove);
         personToShow.Remove(ToRemove);
     }

@@ -96,7 +96,7 @@ using Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/ViewChildren/{Id:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/ViewChildren/{Address}")]
     public partial class ViewChildren : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -107,14 +107,14 @@ using Models;
 #nullable restore
 #line 71 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\ViewChildren.razor"
        
-    [Parameter] public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
     private IList<Child> children;
     private IList<Child> personToShow;
     private string? filterbyName;
 
     protected override async Task OnInitializedAsync()
     {
-        children = file.Get(Id).Children;
+        children = file.Get(Address).Children;
         personToShow = children;
     }
 
@@ -146,7 +146,7 @@ using Models;
     private void RemovePerson(int id)
     {
         Child ToRemove = children.First(t => t.CPRNumber == id);
-        file.RemoveChild(ToRemove, Id);
+        file.RemoveChild(ToRemove, Address);
         children.Remove(ToRemove);
         personToShow.Remove(ToRemove);
     }

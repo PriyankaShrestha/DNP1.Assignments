@@ -104,7 +104,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 14 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Shared\MainLayout.razor"
+#line 13 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Shared\MainLayout.razor"
       
 
     [CascadingParameter] protected Task<AuthenticationState> AuthStat { get; set; }

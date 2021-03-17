@@ -1,4 +1,4 @@
-﻿@page "/ViewAdults/{Id:int}"
+﻿@page "/ViewAdults/{Address}"
 @using FileData
 @using Models
 @inject IPersonTarget file
@@ -58,7 +58,7 @@ else
                         <button @onclick="@(() => RemovePerson(item.CPRNumber))">
                             <i class="oi oi-trash" style="color: red"/>
                         </button>
-                        <button @onclick="@(() => Edit(item.CPRNumber, Id))">
+                        <button @onclick="@(() => Edit(item.CPRNumber, Address))">
                             <i class="oi oi-pencil" style="color: #1b6ec2"/>
                         </button>
                     </td>
@@ -70,14 +70,14 @@ else
 }
 
 @code {
-    [Parameter] public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
     private IList<Adult> adults;
     private IList<Adult> personToShow;
     private string? filterbyName;
 
     protected override async Task OnInitializedAsync()
     {
-        adults = file.Get(Id).Adults;
+        adults = file.Get(Address).Adults;
         personToShow = adults;
     }
 
@@ -101,15 +101,15 @@ else
         }
     }
 
-    private void Edit(int adultId, int Id)
+    private void Edit(int adultId, string address)
     {
-        NavMgr.NavigateTo($"/EditAdult/{adultId}/{Id}");
+        NavMgr.NavigateTo($"/EditAdult/{adultId}/{address}");
     }
 
     private void RemovePerson(int id)
     {
         Adult adultToRemove = adults.First(t => t.CPRNumber == id);
-        file.RemoveAdult(adultToRemove, Id);
+        file.RemoveAdult(adultToRemove, Address);
         adults.Remove(adultToRemove);
         personToShow.Remove(adultToRemove);
     }

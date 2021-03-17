@@ -1,4 +1,4 @@
-﻿@page "/EditAdult/{AdultId:int}/{Id:int}"
+﻿@page "/EditAdult/{AdultId:int}/{Address}"
 @attribute [Authorize(Policy = "EditorRole")]
 @using Models
 @using FileData
@@ -6,7 +6,7 @@
 @inject NavigationManager NavMgr
 
 <h3>Edit Adult Details: @AdultId 
-    of family Id: @Id</h3>
+    of family Id: @Address</h3>
 
  @if (personToEdit == null)
     {
@@ -55,18 +55,18 @@ else
 
 @code {
     [Parameter] public int AdultId { get; set; }
-    [Parameter] public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
 
     private Adult personToEdit;
 
    protected override async Task OnInitializedAsync()
     {
-       personToEdit = PersonData.GetAdult(AdultId, Id);
+       personToEdit = PersonData.GetAdult(AdultId, Address);
     }
 
     private void Save()
     {
-        PersonData.UpdateAdult(personToEdit, Id);
-        NavMgr.NavigateTo("/ViewAdults/{Id}");
+        PersonData.UpdateAdult(personToEdit, Address);
+        NavMgr.NavigateTo($"/ViewAdults/{Address}");
     }
-}}
+}

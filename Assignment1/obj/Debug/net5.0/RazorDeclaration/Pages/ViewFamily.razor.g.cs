@@ -105,7 +105,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 75 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\ViewFamily.razor"
+#line 73 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\ViewFamily.razor"
        
     private IList<Family> toShow;
     private IList<Family> filter;
@@ -118,9 +118,9 @@ using Models;
         filter = toShow;
     }
 
-    private void AddMember(int id)
+    private void AddMember(string address)
     {
-        NavMgr.NavigateTo($"/AddMember/{id}");
+        NavMgr.NavigateTo($"/AddMember/{address}");
     }
 
     private void FilterByCity(ChangeEventArgs evt)
@@ -142,24 +142,24 @@ using Models;
         }
     }
 
-    private void ShowAdults(int id)
+    private void ShowAdults(string address)
     {
-       NavMgr.NavigateTo($"/ViewAdults/{id}");
+       NavMgr.NavigateTo($"/ViewAdults/{address}");
     }
 
-    private void ShowChildren(int id)
+    private void ShowChildren(string address)
     {
-        NavMgr.NavigateTo($"/ViewChildren/{id}");
+        NavMgr.NavigateTo($"/ViewChildren/{address}");
     }
 
-    private void RemoveFamily(int itemId)
+    private void RemoveFamily(string address)
     {
-        file.RemoveFamily(itemId);
+        file.RemoveFamily(address);
     }
 
-    private void EditFamily(int id)
+    private void EditFamily(string address)
     {
-        NavMgr.NavigateTo($"/EditFamily/{id}");
+        NavMgr.NavigateTo($"/EditFamily/{address}");
     }
 
 

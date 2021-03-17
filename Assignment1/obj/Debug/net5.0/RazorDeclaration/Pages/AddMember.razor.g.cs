@@ -96,7 +96,7 @@ using Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/AddMember/{Id:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/AddMember/{Address}")]
     public partial class AddMember : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -107,26 +107,25 @@ using Models;
 #nullable restore
 #line 68 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddMember.razor"
        
-    [Parameter]
-    public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
     private Person newPerson = new();
     private string e;
     private Family family;
 
     protected override async Task OnInitializedAsync()
     {
-        family = file.Get(Id);
+        family = file.Get(Address);
     }
     
     private void AddNewAdult()
     {
-       file.AddNewAdult((Adult)newPerson, Id);
+       file.AddNewAdult((Adult)newPerson, Address);
         Console.WriteLine(newPerson);
     }
     
     private void AddNewChild()
     {
-        file.AddNewChild((Child)newPerson, Id);
+        file.AddNewChild((Child)newPerson, Address);
     }
 
     private void AddSelected(ChangeEventArgs evt)

@@ -103,7 +103,7 @@ using Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/EditFamily/{Id:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/EditFamily/{Address}")]
     public partial class EditFamily : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -114,13 +114,13 @@ using Models;
 #nullable restore
 #line 41 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\EditFamily.razor"
        
-    [Parameter] public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
     
     private Family familyToEdit;
 
     protected override async Task OnInitializedAsync()
     {
-        familyToEdit = PersonData.Get(Id);
+        familyToEdit = PersonData.Get(Address);
     }
 
     private void Save()

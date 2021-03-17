@@ -103,7 +103,7 @@ using FileData;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/EditAdult/{AdultId:int}/{Id:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/EditAdult/{AdultId:int}/{Address}")]
     public partial class EditAdult : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -115,19 +115,19 @@ using FileData;
 #line 56 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\EditAdult.razor"
        
     [Parameter] public int AdultId { get; set; }
-    [Parameter] public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
 
     private Adult personToEdit;
 
    protected override async Task OnInitializedAsync()
     {
-       personToEdit = PersonData.GetAdult(AdultId, Id);
+       personToEdit = PersonData.GetAdult(AdultId, Address);
     }
 
     private void Save()
     {
-        PersonData.UpdateAdult(personToEdit, Id);
-        NavMgr.NavigateTo("/ViewAdults/{Id}");
+        PersonData.UpdateAdult(personToEdit, Address);
+        NavMgr.NavigateTo($"/ViewAdults/{Address}");
     }
 
 #line default

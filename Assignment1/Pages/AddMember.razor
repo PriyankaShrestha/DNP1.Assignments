@@ -1,11 +1,11 @@
-﻿@page "/AddMember/{Id:int}"
+﻿@page "/AddMember/{Address}"
 @using FileData
 @using Models
 
 @inject IPersonTarget file
 @inject NavigationManager NavMgr
 
-<h3>Add Member:@Id</h3>
+<h3>Add Member:@Address</h3>
  @if (family == null)
     {
         <em>Person is not registered!</em>
@@ -66,26 +66,25 @@
  }
 
 @code {
-    [Parameter]
-    public int Id { get; set; }
+    [Parameter] public string Address { get; set; }
     private Person newPerson = new();
     private string e;
     private Family family;
 
     protected override async Task OnInitializedAsync()
     {
-        family = file.Get(Id);
+        family = file.Get(Address);
     }
     
     private void AddNewAdult()
     {
-       file.AddNewAdult((Adult)newPerson, Id);
+       file.AddNewAdult((Adult)newPerson, Address);
         Console.WriteLine(newPerson);
     }
     
     private void AddNewChild()
     {
-        file.AddNewChild((Child)newPerson, Id);
+        file.AddNewChild((Child)newPerson, Address);
     }
 
     private void AddSelected(ChangeEventArgs evt)

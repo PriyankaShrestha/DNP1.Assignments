@@ -82,6 +82,13 @@ using Assignment1.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Shared\NavMenu.razor"
+using Assignment1.Data;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,9 +97,9 @@ using Assignment1.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 18 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Shared\NavMenu.razor"
+#line 36 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Shared\NavMenu.razor"
        
-   private bool collapseNavMenu = true;
+    private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
@@ -101,10 +108,29 @@ using Assignment1.Shared;
         collapseNavMenu = !collapseNavMenu;
     }
 
+    private void PerformLogin()
+    {
+        NavMgr.NavigateTo("/Login");
+    }
+    
+    private void PerformLogout()
+    {
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+            NavMgr.NavigateTo("/Login");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavMgr { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     }
 }
 #pragma warning restore 1591
