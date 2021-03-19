@@ -105,7 +105,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 72 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\ViewAdults.razor"
+#line 75 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\ViewAdults.razor"
        
     [Parameter] public string Address { get; set; }
     private IList<Adult> adults;
@@ -138,9 +138,9 @@ using Models;
         }
     }
 
-    private void Edit(int adultId, string address)
+    private void Edit(int adultId)
     {
-        NavMgr.NavigateTo($"/EditAdult/{adultId}/{address}");
+        NavMgr.NavigateTo($"/EditAdult/{Address}/{adultId}");
     }
 
     private void RemovePerson(int id)
@@ -149,6 +149,11 @@ using Models;
         file.RemoveAdult(adultToRemove, Address);
         adults.Remove(adultToRemove);
         personToShow.Remove(adultToRemove);
+    }
+
+    private void AddJob(int id)
+    {
+        NavMgr.NavigateTo($"/AddJob/{Address}/{id}");
     }
 
 #line default

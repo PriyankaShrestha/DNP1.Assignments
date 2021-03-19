@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FileData;
 using Models;
@@ -75,8 +76,6 @@ namespace Assignment1.Data
             adu.Age = adult.Age;
             adu.Weight = adult.Weight;
             adu.Height = adult.Height;
-            adu.JobTitle.JobTitle = adult.JobTitle.JobTitle;
-            adu.JobTitle.Salary = adult.JobTitle.Salary;
             file.SaveChanges();
         }
 
@@ -91,6 +90,13 @@ namespace Assignment1.Data
         {
             Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
             fam.Children.Remove(child);
+            file.SaveChanges();
+        }
+
+        public void AddJob(Job job, string address, int id)
+        {
+            Adult adult = GetAdult(id, address);
+            adult.JobTitle = job;
             file.SaveChanges();
         }
     }

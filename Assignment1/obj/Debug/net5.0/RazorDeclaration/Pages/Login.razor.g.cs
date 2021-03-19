@@ -98,7 +98,7 @@ using Assignment1.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\Login.razor"
+#line 36 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\Login.razor"
        
     private string username;
     private string password;
@@ -133,6 +133,11 @@ using Assignment1.Data;
         catch (Exception e)
         {
         }
+    }
+    
+    private void Signup()
+    {
+        NavMgr.NavigateTo("/RegisterUser");
     }
 
 #line default

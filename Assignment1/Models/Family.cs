@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Models {
 public class Family {
-    
     public string City { get; set; }
     public string Floor { get; set; }
     public string StreetName { get; set; }
@@ -11,7 +10,7 @@ public class Family {
 
     public string Address()
     {
-        return City + " " + StreetName + " " + HouseNumber + " " + Floor;
+        return City + StreetName + HouseNumber + Floor;
     }
 
     public List<Adult> Adults { get; set; }

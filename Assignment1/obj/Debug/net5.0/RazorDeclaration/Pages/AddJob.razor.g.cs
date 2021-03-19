@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Assignment1.Shared
+namespace Assignment1.Pages
 {
     #line hidden
     using System;
@@ -83,13 +83,21 @@ using Assignment1.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Shared\NavMenu.razor"
-using Assignment1.Data;
+#line 2 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddJob.razor"
+using Models;
 
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddJob.razor"
+using FileData;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/AddJob/{Address}/{Id:int}")]
+    public partial class AddJob : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,40 +105,22 @@ using Assignment1.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 35 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Shared\NavMenu.razor"
+#line 25 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddJob.razor"
        
-    private bool collapseNavMenu = true;
+    [Parameter] public string Address { get; set; }
+    [Parameter] public int Id { get; set; }
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private Job job = new();
 
-    private void ToggleNavMenu()
+    private void Execute()
     {
-        collapseNavMenu = !collapseNavMenu;
+        file.AddJob(job, Address, Id);
     }
-
-    private void PerformLogin()
-    {
-        NavMgr.NavigateTo("/Login");
-    }
-    
-    private void PerformLogout()
-    {
-        try
-        {
-            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
-            NavMgr.NavigateTo("/Login");
-        }
-        catch (Exception e)
-        {
-        }
-    }
-
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavMgr { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPersonTarget file { get; set; }
     }
 }
 #pragma warning restore 1591

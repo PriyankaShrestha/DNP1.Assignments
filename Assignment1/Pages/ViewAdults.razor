@@ -52,13 +52,16 @@ else
             <td>@item.Weight</td>
             <td>@item.HairColor</td>
             <td>@item.EyeColor</td>
-            <td>@item.JobTitle</td>
+            <td>@item.JobTitle @if(@item.JobTitle == null)
+                {<button @onclick="@(() => AddJob(item.CPRNumber))">
+                                 <i class="oi oi-plus" style="color: red"/>
+                             </button>}</td>
             <AuthorizeView Policy="EditorRole">
                 <Authorized><td>
                         <button @onclick="@(() => RemovePerson(item.CPRNumber))">
                             <i class="oi oi-trash" style="color: red"/>
                         </button>
-                        <button @onclick="@(() => Edit(item.CPRNumber, Address))">
+                        <button @onclick="@(() => Edit(item.CPRNumber))">
                             <i class="oi oi-pencil" style="color: #1b6ec2"/>
                         </button>
                     </td>
@@ -101,9 +104,9 @@ else
         }
     }
 
-    private void Edit(int adultId, string address)
+    private void Edit(int adultId)
     {
-        NavMgr.NavigateTo($"/EditAdult/{adultId}/{address}");
+        NavMgr.NavigateTo($"/EditAdult/{Address}/{adultId}");
     }
 
     private void RemovePerson(int id)
@@ -112,5 +115,10 @@ else
         file.RemoveAdult(adultToRemove, Address);
         adults.Remove(adultToRemove);
         personToShow.Remove(adultToRemove);
+    }
+
+    private void AddJob(int id)
+    {
+        NavMgr.NavigateTo($"/AddJob/{Address}/{id}");
     }
 }

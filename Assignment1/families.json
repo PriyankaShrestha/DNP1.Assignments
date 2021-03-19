@@ -4,10 +4,12 @@
     "Floor": "1tv",
     "StreetName": "Gormsgade",
     "HouseNumber": 18,
-    "Id": 1,
     "Adults": [
       {
-        "JobTitle": null,
+        "JobTitle": {
+          "JobTitle": "Manager",
+          "Salary": 40000
+        },
         "CPRNumber": 2109922704,
         "FirstName": "Santosh",
         "LastName": "Shrestha",
@@ -24,8 +26,8 @@
         "FirstName": "Priyanka",
         "LastName": "Shrestha",
         "HairColor": "Black",
-        "EyeColor": "Black",
-        "Age": 25,
+        "EyeColor": "Blue",
+        "Age": 27,
         "Weight": 53,
         "Height": 163,
         "Sex": "Female"
@@ -50,7 +52,6 @@
     "Floor": "1th",
     "StreetName": "Alberstlund",
     "HouseNumber": 16,
-    "Id": 2,
     "Adults": [
       {
         "JobTitle": null,

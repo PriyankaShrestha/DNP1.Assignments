@@ -20,5 +20,6 @@ namespace FileData
         
         void AddNewChild(Child child, string address);
         void RemoveChild(Child child, string address);
+        void AddJob(Job job, string address, int id);
     }
 }

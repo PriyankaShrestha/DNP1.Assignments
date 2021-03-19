@@ -74,3 +74,5 @@ C:\Users\HP\RiderProjects\Assignments\Assignment1\obj\Debug\net5.0\Razor\Pages\N
 C:\Users\HP\RiderProjects\Assignments\Assignment1\obj\Debug\net5.0\Razor\Pages\ViewChildren.razor.g.cs
 C:\Users\HP\RiderProjects\Assignments\Assignment1\obj\Debug\net5.0\Razor\Shared\TableTemplate.razor.g.cs
 C:\Users\HP\RiderProjects\Assignments\Assignment1\bin\Debug\net5.0\families.json
+C:\Users\HP\RiderProjects\Assignments\Assignment1\obj\Debug\net5.0\RazorDeclaration\Pages\AddJob.razor.g.cs
+C:\Users\HP\RiderProjects\Assignments\Assignment1\obj\Debug\net5.0\Razor\Pages\AddJob.razor.g.cs

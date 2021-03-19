@@ -103,7 +103,7 @@ using FileData;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/EditAdult/{AdultId:int}/{Address}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/EditAdult/{Address}/{AdultId:int}")]
     public partial class EditAdult : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -112,21 +112,21 @@ using FileData;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\EditAdult.razor"
+#line 59 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\EditAdult.razor"
        
-    [Parameter] public int AdultId { get; set; }
     [Parameter] public string Address { get; set; }
+    [Parameter] public int AdultId { get; set; }
 
     private Adult personToEdit;
 
    protected override async Task OnInitializedAsync()
     {
-       personToEdit = PersonData.GetAdult(AdultId, Address);
+       personToEdit = File.GetAdult(AdultId, Address);
     }
 
     private void Save()
     {
-        PersonData.UpdateAdult(personToEdit, Address);
+        File.UpdateAdult(personToEdit, Address);
         NavMgr.NavigateTo($"/ViewAdults/{Address}");
     }
 
@@ -134,7 +134,7 @@ using FileData;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavMgr { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPersonTarget PersonData { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPersonTarget File { get; set; }
     }
 }
 #pragma warning restore 1591
