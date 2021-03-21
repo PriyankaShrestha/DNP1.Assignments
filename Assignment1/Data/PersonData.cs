@@ -49,6 +49,25 @@ namespace Assignment1.Data
             return file.Families;
         }
 
+        public IList<Person> GetAllPerson()
+        {
+            IList<Person> persons = new List<Person>();
+            foreach (var family in Get())
+            {
+                foreach (var adults in family.Adults)
+                {
+                    persons.Add(adults);
+                }
+
+                foreach (var children in family.Children)
+                {
+                    persons.Add(children);
+                }
+            }
+
+            return persons;
+        }
+
         public void AddNewAdult(Adult adult, string address)
         {
             Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));

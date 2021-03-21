@@ -10,6 +10,7 @@ namespace FileData
         void Update(Family family);
         Family Get(string address);
         IList<Family> Get();
+        IList<Person> GetAllPerson();
         
         
         void AddNewAdult(Adult adult, string address);
