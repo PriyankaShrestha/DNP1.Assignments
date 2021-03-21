@@ -1,4 +1,5 @@
 ﻿@page "/AddMember/{Address}"
+@attribute [Authorize(Policy = "AdminRole")]
 @using FileData
 @using Models
 

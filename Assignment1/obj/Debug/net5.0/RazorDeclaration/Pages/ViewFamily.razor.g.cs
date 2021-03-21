@@ -105,7 +105,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 73 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\ViewFamily.razor"
+#line 80 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\ViewFamily.razor"
        
     private IList<Family> toShow;
     private IList<Family> filter;

@@ -25,24 +25,12 @@
         "CPRNumber": 230696223,
         "FirstName": "Priyanka",
         "LastName": "Shrestha",
-        "HairColor": "Black",
+        "HairColor": "Blonde",
         "EyeColor": "Blue",
         "Age": 27,
-        "Weight": 53,
-        "Height": 163,
+        "Weight": 55,
+        "Height": 160,
         "Sex": "Female"
-      },
-      {
-        "JobTitle": null,
-        "CPRNumber": 1135764137,
-        "FirstName": "Pratik",
-        "LastName": "Shrestha",
-        "HairColor": "Black",
-        "EyeColor": "Black",
-        "Age": 20,
-        "Weight": 75,
-        "Height": 180,
-        "Sex": "Male"
       }
     ],
     "Children": []
@@ -51,7 +39,7 @@
     "City": "Copenhagen",
     "Floor": "1th",
     "StreetName": "Alberstlund",
-    "HouseNumber": 16,
+    "HouseNumber": 2,
     "Adults": [
       {
         "JobTitle": null,
@@ -70,7 +58,54 @@
       {
         "Interests": null,
         "Pets": null,
-        "CPRNumber": 346132465,
+        "CPRNumber": 1232553622,
+        "FirstName": "Pratik",
+        "LastName": "Shrestha",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 18,
+        "Weight": 70,
+        "Height": 180,
+        "Sex": "Male"
+      }
+    ]
+  },
+  {
+    "City": "Horsens",
+    "Floor": "2tv",
+    "StreetName": "Norregade",
+    "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": null,
+        "CPRNumber": 1654635468,
+        "FirstName": "Prina",
+        "LastName": "Shrestha Shakya",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 29,
+        "Weight": 75,
+        "Height": 170,
+        "Sex": "Female"
+      },
+      {
+        "JobTitle": null,
+        "CPRNumber": 1674634968,
+        "FirstName": "Bijay",
+        "LastName": "Shakya",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 32,
+        "Weight": 80,
+        "Height": 175,
+        "Sex": "Male"
+      }
+    ],
+    "Children": [
+      {
+        "Interests": null,
+        "Pets": null,
+        "CPRNumber": 146913464,
         "FirstName": "Parisha",
         "LastName": "Shakya",
         "HairColor": "Black",
@@ -81,5 +116,21 @@
         "Sex": "Female"
       }
     ]
+  },
+  {
+    "City": "Horsens",
+    "Floor": "2th",
+    "StreetName": "Sundvej",
+    "HouseNumber": 5,
+    "Adults": [],
+    "Children": []
+  },
+  {
+    "City": "Horsens",
+    "Floor": "1tv",
+    "StreetName": "Ane Staunings Vej",
+    "HouseNumber": 15,
+    "Adults": [],
+    "Children": []
   }
 ]

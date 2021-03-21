@@ -36,7 +36,10 @@ else
             <AuthorizeView Policy="EditorRole">
                 <th>Action</th>
             </AuthorizeView>
-            <th>Add Member</th>
+            <AuthorizeView Policy="AdminRole">
+                <th>Add Member</th>
+            </AuthorizeView>
+
         </TableHeader>
         
         <RowTemplate Context="item">
@@ -52,20 +55,24 @@ else
             </button></td>
             <AuthorizeView Policy="EditorRole">
                 <Authorized>
-                <td>
-                    <button @onclick="@(() => RemoveFamily(item.Address()))">
-                        <i class="oi oi-trash" style="color: red"/>
-                    </button> | <button @onclick="@(() => EditFamily(item.Address()))">
-                        <i class="oi oi-pencil" style="color: red"/>
-                    </button>
-                </td>
+                    <td>
+                        <button @onclick="@(() => RemoveFamily(item.Address()))">
+                            <i class="oi oi-trash" style="color: red"/>
+                        </button> | <button @onclick="@(() => EditFamily(item.Address()))">
+                            <i class="oi oi-pencil" style="color: #1b6ec2"/>
+                        </button>
+                    </td>
                 </Authorized>
             </AuthorizeView>
-            <td>
-                <button @onclick="@(() => AddMember(item.Address()))">
-                    <i class="oi oi-person" style="color: #1b6ec2"/>
-                </button>
-            </td>
+            <AuthorizeView Policy="AdminRole">
+                <Authorized>
+                    <td>
+                        <button @onclick="@(() => AddMember(item.Address()))">
+                            <i class="oi oi-person" style="color: #1b6ec2"/>
+                        </button>
+                    </td>
+                </Authorized>
+            </AuthorizeView>
         </RowTemplate>
     </TableTemplate>
 }

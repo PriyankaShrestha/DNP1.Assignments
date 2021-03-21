@@ -83,15 +83,22 @@ using Assignment1.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddMember.razor"
+#line 3 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddMember.razor"
 using FileData;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddMember.razor"
+#line 4 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddMember.razor"
 using Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddMember.razor"
+           [Authorize(Policy = "AdminRole")]
 
 #line default
 #line hidden
@@ -105,7 +112,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 68 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddMember.razor"
+#line 69 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\AddMember.razor"
        
     [Parameter] public string Address { get; set; }
     private Person newPerson = new();
