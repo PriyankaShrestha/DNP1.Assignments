@@ -47,12 +47,24 @@ else
             <td>@item.StreetName</td>
             <td>@item.HouseNumber</td>
             <td>@item.Floor</td>
-            <td>@item.Adults.Count <button @onclick="@(() => ShowAdults(item.Address()))">
-                <i class="oi oi-eye" style="color: #1b6ec2"/>
-            </button></td>
-            <td>@item.Children.Count<button @onclick="@(() => ShowChildren(item.Address()))">
-                <i class="oi oi-eye" style="color: #1b6ec2"/>
-            </button></td>
+            <td>@item.Adults.Count 
+                <AuthorizeView>
+                    <Authorized>
+                    <button @onclick="@(() => ShowAdults(item.Address()))">
+                        <i class="oi oi-eye" style="color: #1b6ec2"/>
+                    </button>
+                    </Authorized>
+                </AuthorizeView>
+                </td>
+            <td>@item.Children.Count
+                <AuthorizeView>
+                    <Authorized>
+                        <button @onclick="@(() => ShowChildren(item.Address()))">
+                            <i class="oi oi-eye" style="color: #1b6ec2"/>
+                        </button>
+                    </Authorized>
+                </AuthorizeView>
+                </td>
             <AuthorizeView Policy="EditorRole">
                 <Authorized>
                     <td>
