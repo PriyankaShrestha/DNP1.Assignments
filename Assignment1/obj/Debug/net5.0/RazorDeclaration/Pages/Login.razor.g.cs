@@ -98,7 +98,7 @@ using Assignment1.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\Login.razor"
+#line 38 "C:\Users\HP\RiderProjects\Assignments\Assignment1\Pages\Login.razor"
        
     private string username;
     private string password;

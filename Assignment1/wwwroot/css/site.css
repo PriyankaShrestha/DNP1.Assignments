@@ -1,17 +1,22 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+
 html, body {
+    min-height: 100%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #ececf6;
+    color: #ececf6;
+    background-image: linear-gradient(to bottom right, black, #0270A6);
+    background-size: cover;
+    
 }
 
 a, .btn-link {
-    color: #0366d6;
+    color: lightyellow;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
+    color: #0270A6;
+    background-color: lightyellow;
     border-color: #1861ac;
 }
 
@@ -48,4 +53,20 @@ a, .btn-link {
     position: absolute;
     right: 0.75rem;
     top: 0.5rem;
+}
+
+.table {
+    color: aliceblue;
+}
+
+.login {
+    padding: 2%;
+    height: auto;
+    width: auto;
+    display: block;
+    overflow: auto;
+}
+
+.login label {
+    padding-right: 20px;
 }

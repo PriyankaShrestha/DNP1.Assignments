@@ -132,5 +132,27 @@
     "HouseNumber": 15,
     "Adults": [],
     "Children": []
+  },
+  {
+    "City": "Kolding",
+    "Floor": "1th",
+    "StreetName": "ProfilVej",
+    "HouseNumber": 12,
+    "Adults": [],
+    "Children": [
+      {
+        "Interests": null,
+        "Pets": null,
+        "CPRNumber": 121464,
+        "FirstName": "jkbefi",
+        "LastName": "bsbg",
+        "HairColor": "brbf",
+        "EyeColor": "bbergb",
+        "Age": 252,
+        "Weight": 25,
+        "Height": 25,
+        "Sex": "Fmela"
+      }
+    ]
   }
 ]

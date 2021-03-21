@@ -1,10 +1,14 @@
+.navbar[b-sj69vyuofy] {
+    background-color: black;
+}
+
 .navbar-toggler[b-sj69vyuofy] {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 .top-row[b-sj69vyuofy] {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: #000000;
 }
 
 .navbar-brand[b-sj69vyuofy] {
