@@ -1,0 +1,230 @@
+[
+  {
+    "City": "Horsens",
+    "Floor": "1tv",
+    "StreetName": "Gormsgade",
+    "HouseNumber": 18,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Manager",
+          "Salary": 40000
+        },
+        "CPRNumber": 2109922704,
+        "FirstName": "Santosh",
+        "LastName": "Shrestha",
+        "HairColor": "Blonde",
+        "EyeColor": "Black",
+        "Age": 29,
+        "Weight": 60,
+        "Height": 160,
+        "Sex": "Male"
+      },
+      {
+        "JobTitle": null,
+        "CPRNumber": 230696223,
+        "FirstName": "Priyanka",
+        "LastName": "Shrestha",
+        "HairColor": "Blonde",
+        "EyeColor": "Blue",
+        "Age": 27,
+        "Weight": 55,
+        "Height": 160,
+        "Sex": "Female"
+      }
+    ],
+    "Children": [
+      {
+        "Interests": null,
+        "Pets": null,
+        "CPRNumber": 1234865,
+        "FirstName": "Jaani",
+        "LastName": "Shrestha",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 2,
+        "Weight": 20,
+        "Height": 70,
+        "Sex": "Female"
+      }
+    ]
+  },
+  {
+    "City": "Copenhagen",
+    "Floor": "1th",
+    "StreetName": "Alberstlund",
+    "HouseNumber": 2,
+    "Adults": [
+      {
+        "JobTitle": null,
+        "CPRNumber": 230552852,
+        "FirstName": "Kamala ",
+        "LastName": "Shrestha",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 50,
+        "Weight": 60,
+        "Height": 160,
+        "Sex": "Female"
+      }
+    ],
+    "Children": [
+      {
+        "Interests": null,
+        "Pets": null,
+        "CPRNumber": 1232553622,
+        "FirstName": "Pratik",
+        "LastName": "Shrestha",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 18,
+        "Weight": 70,
+        "Height": 180,
+        "Sex": "Male"
+      }
+    ]
+  },
+  {
+    "City": "Horsens",
+    "Floor": "2tv",
+    "StreetName": "Norregade",
+    "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": null,
+        "CPRNumber": 1654635468,
+        "FirstName": "Prina",
+        "LastName": "Shrestha Shakya",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 29,
+        "Weight": 75,
+        "Height": 170,
+        "Sex": "Female"
+      },
+      {
+        "JobTitle": null,
+        "CPRNumber": 1674634968,
+        "FirstName": "Bijay",
+        "LastName": "Shakya",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 32,
+        "Weight": 80,
+        "Height": 175,
+        "Sex": "Male"
+      }
+    ],
+    "Children": [
+      {
+        "Interests": null,
+        "Pets": null,
+        "CPRNumber": 146913464,
+        "FirstName": "Parisha",
+        "LastName": "Shakya",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 5,
+        "Weight": 30,
+        "Height": 130,
+        "Sex": "Female"
+      }
+    ]
+  },
+  {
+    "City": "Horsens",
+    "Floor": "2th",
+    "StreetName": "Sundvej",
+    "HouseNumber": 5,
+    "Adults": [],
+    "Children": []
+  },
+  {
+    "City": "Horsens",
+    "Floor": "1tv",
+    "StreetName": "Ane Staunings Vej",
+    "HouseNumber": 15,
+    "Adults": [],
+    "Children": []
+  },
+  {
+    "City": "Kolding",
+    "Floor": "1th",
+    "StreetName": "ProfilVej",
+    "HouseNumber": 12,
+    "Adults": [],
+    "Children": [
+      {
+        "Interests": null,
+        "Pets": null,
+        "CPRNumber": 121464,
+        "FirstName": "jkbefi",
+        "LastName": "bsbg",
+        "HairColor": "brbf",
+        "EyeColor": "bbergb",
+        "Age": 252,
+        "Weight": 25,
+        "Height": 25,
+        "Sex": "Fmela"
+      }
+    ]
+  },
+  {
+    "City": "Vejle",
+    "Floor": "2th",
+    "StreetName": "Claus Gade",
+    "HouseNumber": 2,
+    "Adults": [],
+    "Children": []
+  },
+  {
+    "City": "string",
+    "Floor": "string",
+    "StreetName": "string",
+    "HouseNumber": 0,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "string",
+          "Salary": 0
+        },
+        "CPRNumber": 0,
+        "FirstName": "string",
+        "LastName": "string",
+        "HairColor": "string",
+        "EyeColor": "string",
+        "Age": 0,
+        "Weight": 0,
+        "Height": 0,
+        "Sex": "string"
+      }
+    ],
+    "Children": [
+      {
+        "Interests": [
+          {
+            "Type": "string",
+            "Description": "string"
+          }
+        ],
+        "Pets": [
+          {
+            "Id": 0,
+            "Species": "string",
+            "Name": "string",
+            "Age": 0
+          }
+        ],
+        "CPRNumber": 0,
+        "FirstName": "string",
+        "LastName": "string",
+        "HairColor": "string",
+        "EyeColor": "string",
+        "Age": 0,
+        "Weight": 0,
+        "Height": 0,
+        "Sex": "string"
+      }
+    ]
+  }
+]

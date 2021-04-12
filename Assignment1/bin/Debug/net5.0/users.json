@@ -10,5 +10,11 @@
     "Password": "123456",
     "Role": "Editor",
     "Age": 29
+  },
+  {
+    "Username": "Kamala",
+    "Password": "123456",
+    "Role": "Mother",
+    "Age": 50
   }
 ]

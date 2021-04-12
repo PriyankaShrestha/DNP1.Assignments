@@ -13,7 +13,7 @@
         "CPRNumber": 2109922704,
         "FirstName": "Santosh",
         "LastName": "Shrestha",
-        "HairColor": "Black",
+        "HairColor": "Blonde",
         "EyeColor": "Black",
         "Age": 29,
         "Weight": 60,
@@ -33,7 +33,21 @@
         "Sex": "Female"
       }
     ],
-    "Children": []
+    "Children": [
+      {
+        "Interests": null,
+        "Pets": null,
+        "CPRNumber": 1234865,
+        "FirstName": "Jaani",
+        "LastName": "Shrestha",
+        "HairColor": "Black",
+        "EyeColor": "Black",
+        "Age": 2,
+        "Weight": 20,
+        "Height": 70,
+        "Sex": "Female"
+      }
+    ]
   },
   {
     "City": "Copenhagen",
@@ -154,5 +168,13 @@
         "Sex": "Fmela"
       }
     ]
+  },
+  {
+    "City": "Vejle",
+    "Floor": "2th",
+    "StreetName": "Claus Gade",
+    "HouseNumber": 2,
+    "Adults": [],
+    "Children": []
   }
 ]
