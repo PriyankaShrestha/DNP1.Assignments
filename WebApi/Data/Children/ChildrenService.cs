@@ -23,9 +23,10 @@ namespace WebApi.Data
             return child;
         }
 
-        public async Task RemoveChildAsync(Child child, string address)
+        public async Task RemoveChildAsync(int cprNumber, string address)
         {
             Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
+            Child child = fam.Children.FirstOrDefault(c => c.CPRNumber == cprNumber);
             fam.Children.Remove(child);
             file.SaveChanges();
         }

@@ -56,7 +56,10 @@
     "HouseNumber": 2,
     "Adults": [
       {
-        "JobTitle": null,
+        "JobTitle": {
+          "JobTitle": "Boiehfo",
+          "Salary": 21513
+        },
         "CPRNumber": 230552852,
         "FirstName": "Kamala ",
         "LastName": "Shrestha",

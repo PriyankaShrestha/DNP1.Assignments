@@ -21,11 +21,12 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IList<Child>>> GetChild([FromRoute] string address)
+        [Route("{Address}")]
+        public async Task<ActionResult<IList<Child>>> GetChild([FromRoute] string Address)
         {
             try
             {
-                IList<Child> children = await childrenService.GetChildrenAsync(address);
+                IList<Child> children = await childrenService.GetChildrenAsync(Address);
                 return Ok(children);
             }
             catch (Exception e)
@@ -50,11 +51,12 @@ namespace WebApi.Controllers
         }*/
         
         [HttpDelete]
-        public async Task<ActionResult> DeleteChild([FromBody] Child child, [FromRoute] string address)
+        [Route("{address}/{CprNumber:int}")]
+        public async Task<ActionResult> DeleteChild([FromRoute] string Address, [FromRoute] int CprNumber)
         {
             try
             {
-                await childrenService.RemoveChildAsync(child, address);
+                await childrenService.RemoveChildAsync(CprNumber, Address);
                 return Ok();
             }
             catch (Exception e)
@@ -64,6 +66,7 @@ namespace WebApi.Controllers
         }
         
         [HttpPost]
+        [Route("{Address}")]
         public async Task<ActionResult<Family>> AddChild([FromBody] Child child, [FromRoute] string address)
         {
             if (!ModelState.IsValid)

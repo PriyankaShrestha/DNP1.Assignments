@@ -34,7 +34,7 @@ namespace Assignment2.Data.Interfaces
                 "application/json"
             );
 
-            await client.PostAsync("http://localhost:5003/children", content);
+            await client.PostAsync($"{uri}/children", content);
         }
 
         public async Task RemoveChildAsync(Child child, string address)
@@ -43,7 +43,7 @@ namespace Assignment2.Data.Interfaces
             fam.Children.Remove(child);
             file.SaveChanges();*/
          
-         await client.DeleteAsync($"http://localhost:5003/children/{address}/{child}");
+         await client.DeleteAsync($"{uri}/children/{address}/{child.CPRNumber}");
         }
         
         public async Task<IList<Child>> GetChildrenAsync(string address)
