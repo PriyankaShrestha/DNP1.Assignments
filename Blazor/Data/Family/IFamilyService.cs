@@ -8,7 +8,7 @@ namespace Assignment2.Data.Interfaces
     {
         Task AddFamilyAsync(Family family);
         Task RemoveFamilyAsync(string address);
-        Task UpdateFamilyAsync(Family family);
+        Task UpdateFamilyAsync(string Address, Family family);
         Task<Family> GetFamilyAsync(string address);
         Task<IList<Family>> GetFamiliesAsync();
     }

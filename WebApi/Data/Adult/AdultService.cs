@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Models;
@@ -23,9 +24,10 @@ namespace WebApi.Data
             return adult;
         }
 
-        public async Task RemoveAdultAsync(Adult adult, string address)
+        public async Task RemoveAdultAsync(int cprNumber, string address)
         {
             Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
+            Adult adult = fam.Adults.FirstOrDefault(a => a.CPRNumber == cprNumber);
             fam.Adults.Remove(adult);
             file.SaveChanges();
         }
@@ -51,7 +53,10 @@ namespace WebApi.Data
 
         public async Task<IList<Adult>> GetAdultsAsync(string address)
         {
+            //Console.WriteLine(address);
             Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
+            //Console.WriteLine(fam);
+            //Console.WriteLine(fam.Adults);
             return fam.Adults;
         }
 

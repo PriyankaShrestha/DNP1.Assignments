@@ -125,7 +125,7 @@ using Assignment2.Data.Interfaces;
 
     private void Save()
     {
-        FamilyFile.UpdateFamilyAsync(familyToEdit);
+        FamilyFile.UpdateFamilyAsync(Address, familyToEdit);
         NavMgr.NavigateTo("/ViewFamily");
     }
 

@@ -53,13 +53,10 @@ namespace Assignment2.Authenticatin
             try
             {
                 User user = await userService.ValidateUserAsync(username, password);
-                Console.WriteLine("Checking for " + user);
                 identity = SetupClaimsForUser(user);
-                Console.WriteLine("line 58");
                 string serialisedData = JsonSerializer.Serialize(user);
                 jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
-                Console.WriteLine(cachedUser);
             }
             catch (Exception e)
             {

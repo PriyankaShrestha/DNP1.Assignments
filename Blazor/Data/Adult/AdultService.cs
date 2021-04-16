@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Assignment2.Data.Interfaces
     public class AdultService : IAdultService
     {
         private HttpClient client;
-        private string uri = "http://localhost:5006";
+        private string uri = "https://localhost:5005";
 
         public AdultService()
         {
@@ -34,7 +35,7 @@ namespace Assignment2.Data.Interfaces
                "application/json"
            );
 
-           await client.PostAsync("http://localhost:5003/adults", content);
+           await client.PostAsync($"{uri}/adults/{address}", content);
         }
 
         public async Task RemoveAdultAsync(Adult adult, string address)
@@ -43,7 +44,7 @@ namespace Assignment2.Data.Interfaces
             fam.Adults.Remove(adult);
             file.SaveChanges();*/
             
-            await client.DeleteAsync($"http://localhost:5003/adults/{address}/{adult}");
+            await client.DeleteAsync($"{uri}/adults/{address}/{adult.CPRNumber}");
         }
 
         public async Task<Adult> GetAdultAsync(int adultId, string address)
@@ -54,7 +55,10 @@ namespace Assignment2.Data.Interfaces
             
             Task<string> adultAsync = client.GetStringAsync(uri + $"/adults/{address}/{adultId}");
             string message = await adultAsync;
-            Adult adult =  JsonSerializer.Deserialize<Adult>(message);
+            Adult adult =  JsonSerializer.Deserialize<Adult>(message, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
             return adult;
         }
 
@@ -77,18 +81,35 @@ namespace Assignment2.Data.Interfaces
                 "application/json"
             );
 
-            await client.PatchAsync($"http://localhost:5003/adults/{address}", content);
+            await client.PatchAsync($"{uri}/adults/{address}", content);
         }
 
         public async Task<IList<Adult>> GetAdultsAsync(string address)
         {
             /*Family fam = file.Families.FirstOrDefault(t => t.Address().Equals(address));
             return fam.Adults;*/
-            
-            Task<string> stringAsync = client.GetStringAsync(uri + $"/adults/{address}");
+/*
+            Task<string> stringAsync = client.GetStringAsync($"{uri}/adults" + $"/{address}");
             string message = await stringAsync;
-            List<Adult> result = JsonSerializer.Deserialize<List<Adult>>(message);
-            return result;
+            List<Adult> result = JsonSerializer.Deserialize<List<Adult>>(message, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+            Console.WriteLine(result);
+            return result;*/
+
+            HttpResponseMessage stringAsync =
+                await client.GetAsync($"{uri}/adults/{address}");
+            if (stringAsync.IsSuccessStatusCode)
+            {
+                string message = await stringAsync.Content.ReadAsStringAsync();
+                List<Adult> result = JsonSerializer.Deserialize<List<Adult>>(message, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+                return result;
+            }
+            throw new Exception("Adults not found");
         }
 
         public async Task AddJobAsync(Job job, string address, int id)
@@ -101,7 +122,7 @@ namespace Assignment2.Data.Interfaces
                 "application/json"
             );
 
-            await client.PostAsync($"http://localhost:5003/adults/{address}/{id}", content);
+            await client.PostAsync($"{uri}/adults/{address}/{id}", content);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("/{address}")]
+        [Route("{Address}")]
         public async Task<ActionResult<IList<Adult>>> GetAdults([FromRoute] string Address)
         {
             try
@@ -36,7 +36,7 @@ namespace WebApi.Controllers
         
         [HttpGet]
         [Route("{address}/{id:int}")]
-        public async Task<ActionResult<Adult>> GetAdult([FromRoute] string address, int id)
+        public async Task<ActionResult<Adult>> GetAdult([FromRoute] string address, [FromRoute] int id)
         {
             try
             {
@@ -50,11 +50,12 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteAdult([FromBody] Adult adult, [FromRoute] string address)
+        [Route("{address}/{CprNumber:int}")]
+        public async Task<ActionResult> DeleteAdult([FromRoute] string Address, [FromRoute] int CprNumber )
         {
             try
             {
-                await adultService.RemoveAdultAsync(adult, address);
+                await adultService.RemoveAdultAsync(CprNumber, Address);
                 return Ok();
             }
             catch (Exception e)
@@ -64,8 +65,8 @@ namespace WebApi.Controllers
         }
         
         [HttpPost]
-        [Route("/address")]
-        public async Task<ActionResult<Adult>> AddAdult([FromBody] Adult adult,[FromRoute] string address)
+        [Route("{Address}")]
+        public async Task<ActionResult<Adult>> AddAdult([FromBody] Adult adult,[FromRoute] string Address)
         {
             if (!ModelState.IsValid)
             {
@@ -73,7 +74,7 @@ namespace WebApi.Controllers
             }
             try
             {
-                Adult toAdd = await adultService.AddAdultAsync(adult, address);
+                Adult toAdd = await adultService.AddAdultAsync(adult, Address);
                 return Created($"/{toAdd}", toAdd);
             }
             catch (Exception e)

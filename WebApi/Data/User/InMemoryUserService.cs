@@ -29,7 +29,6 @@ namespace WebApi.Data
         public async Task<User> ValidateUserAsync(string username, string password)
         {
             User u = file.Users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password));
-            Console.WriteLine(u);
             if (u != null)
             {
                 return u;

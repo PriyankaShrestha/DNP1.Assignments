@@ -53,6 +53,7 @@ namespace WebApi.Controllers
         {
             try
             {
+                Console.WriteLine(address);
                 await familyService.RemoveFamilyAsync(address);
                 return Ok();
             }
@@ -81,11 +82,12 @@ namespace WebApi.Controllers
         }
         
         [HttpPatch]
-        public async Task<ActionResult<Family>> UpdateFamily([FromBody] Family family)
+        [Route("{address}")]
+        public async Task<ActionResult<Family>> UpdateFamily([FromRoute] string address, [FromBody] Family family)
         {
             try
             {
-                Family toUpdate = await familyService.UpdateFamilyAsync(family);
+                Family toUpdate = await familyService.UpdateFamilyAsync(address, family);
                 return Created($"/{toUpdate}", toUpdate);
             }
             catch (Exception e)

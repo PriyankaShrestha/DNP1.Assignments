@@ -56,7 +56,10 @@
     "HouseNumber": 2,
     "Adults": [
       {
-        "JobTitle": null,
+        "JobTitle": {
+          "JobTitle": "Boiehfo",
+          "Salary": 21513
+        },
         "CPRNumber": 230552852,
         "FirstName": "Kamala ",
         "LastName": "Shrestha",
@@ -149,7 +152,7 @@
   },
   {
     "City": "Kolding",
-    "Floor": "1th",
+    "Floor": "8th",
     "StreetName": "ProfilVej",
     "HouseNumber": 12,
     "Adults": [],
@@ -176,55 +179,5 @@
     "HouseNumber": 2,
     "Adults": [],
     "Children": []
-  },
-  {
-    "City": "string",
-    "Floor": "string",
-    "StreetName": "string",
-    "HouseNumber": 0,
-    "Adults": [
-      {
-        "JobTitle": {
-          "JobTitle": "string",
-          "Salary": 0
-        },
-        "CPRNumber": 0,
-        "FirstName": "string",
-        "LastName": "string",
-        "HairColor": "string",
-        "EyeColor": "string",
-        "Age": 0,
-        "Weight": 0,
-        "Height": 0,
-        "Sex": "string"
-      }
-    ],
-    "Children": [
-      {
-        "Interests": [
-          {
-            "Type": "string",
-            "Description": "string"
-          }
-        ],
-        "Pets": [
-          {
-            "Id": 0,
-            "Species": "string",
-            "Name": "string",
-            "Age": 0
-          }
-        ],
-        "CPRNumber": 0,
-        "FirstName": "string",
-        "LastName": "string",
-        "HairColor": "string",
-        "EyeColor": "string",
-        "Age": 0,
-        "Weight": 0,
-        "Height": 0,
-        "Sex": "string"
-      }
-    ]
   }
 ]

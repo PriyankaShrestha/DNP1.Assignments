@@ -53,7 +53,10 @@ namespace Assignment2.Data.Interfaces
            
            Task<string> stringAsync = client.GetStringAsync(uri + $"/children/{address}");
            string message = await stringAsync;
-           List<Child> result = JsonSerializer.Deserialize<List<Child>>(message);
+           List<Child> result = JsonSerializer.Deserialize<List<Child>>(message, new JsonSerializerOptions
+           {
+               PropertyNameCaseInsensitive = true
+           });
            return result;
         }
     }

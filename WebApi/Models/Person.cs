@@ -12,6 +12,11 @@ public class Person {
     public float Weight { get; set; }
     public int Height { get; set; }
     public string Sex { get; set; }
+    public string ToString()
+    {
+        return CPRNumber + " " + FirstName + " " + LastName + " " + HairColor + " " + EyeColor + " "
+               + Age + " " + Weight + " " + Height + " " + Sex;
+    }
 }
 
 

@@ -29,9 +29,9 @@ namespace WebApi.Data
             file.SaveChanges();
         }
 
-        public async Task<Family> UpdateFamilyAsync(Family family)
+        public async Task<Family> UpdateFamilyAsync(string address, Family family)
         {
-            Family toUpdate = file.Families.First(t => t.Address().Equals(family.Address()));
+            Family toUpdate = file.Families.First(t => t.Address().Equals(address));
             toUpdate.City = family.City;
             toUpdate.StreetName = family.StreetName;
             toUpdate.HouseNumber = family.HouseNumber;

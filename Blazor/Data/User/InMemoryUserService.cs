@@ -46,7 +46,6 @@ namespace Assignment2.Data.Users
                 {
                     PropertyNameCaseInsensitive = true
                 });
-                Console.WriteLine(first);
                 return first;
             }
             throw new Exception("User Not Found");

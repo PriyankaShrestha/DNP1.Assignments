@@ -33,7 +33,7 @@ namespace Assignment2.Data.Interfaces
                 "application/json"
             );
 
-            await client.PostAsync("http://localhost:5003/families", content);
+            await client.PostAsync($"{uri}/families" , content);
         }
 
         public async Task RemoveFamilyAsync(string address)
@@ -42,10 +42,10 @@ namespace Assignment2.Data.Interfaces
             file.Families.Remove(familyToRemove);
             file.SaveChanges();*/
             
-            await client.DeleteAsync($"http://localhost:5003/families/{address}");
+            await client.DeleteAsync($"{uri}/families/{address}");
         }
 
-        public async Task UpdateFamilyAsync(Family family)
+        public async Task UpdateFamilyAsync(string address, Family family)
         {
             /*Family toUpdate = file.Families.First(t => t.Address().Equals(family.Address()));
             toUpdate.City = family.City;
@@ -57,7 +57,10 @@ namespace Assignment2.Data.Interfaces
 
             return toUpdate;*/
             
-            string serializedFamily = JsonSerializer.Serialize(family);
+            string serializedFamily = JsonSerializer.Serialize(family, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
 
             StringContent content = new StringContent(
                 serializedFamily,
@@ -65,7 +68,7 @@ namespace Assignment2.Data.Interfaces
                 "application/json"
             );
 
-            await client.PatchAsync($"http://localhost:5003/families/{family.Address()}", content);
+            await client.PatchAsync($"{uri}/families/{address}", content);
         }
 
         public async Task<Family> GetFamilyAsync(string address)
@@ -74,7 +77,10 @@ namespace Assignment2.Data.Interfaces
             
             Task<string> familyAsync = client.GetStringAsync(uri + $"/families/{address}");
             string message = await familyAsync;
-            Family family =  JsonSerializer.Deserialize<Family>(message);
+            Family family =  JsonSerializer.Deserialize<Family>(message, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
             return family;
         }
 
@@ -84,7 +90,10 @@ namespace Assignment2.Data.Interfaces
            
            Task<string> stringAsync = client.GetStringAsync(uri + $"/families");
            string message = await stringAsync;
-           List<Family> result = JsonSerializer.Deserialize<List<Family>>(message);
+           List<Family> result = JsonSerializer.Deserialize<List<Family>>(message, new JsonSerializerOptions
+           {
+               PropertyNameCaseInsensitive = true
+           });
            return result;
         }
     }

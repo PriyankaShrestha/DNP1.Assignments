@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Models {
@@ -21,6 +22,12 @@ public class Family {
     public Family() {
         Adults = new List<Adult>();
         Children = new List<Child>();
+    }
+
+    public string ToString()
+    {
+        return City + " " + StreetName + " " + HouseNumber + " " + Floor + "Adults: " + Adults.ToList() + "\n " +
+               "Children: " + Children.ToList();
     }
 }
 
