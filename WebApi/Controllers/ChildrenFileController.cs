@@ -67,7 +67,7 @@ namespace WebApi.Controllers
         
         [HttpPost]
         [Route("{Address}")]
-        public async Task<ActionResult<Family>> AddChild([FromBody] Child child, [FromRoute] string address)
+        public async Task<ActionResult<Child>> AddChild([FromBody] Child child, [FromRoute] string address)
         {
             if (!ModelState.IsValid)
             {
